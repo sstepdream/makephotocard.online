@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growth Memory Card - Create Beautiful Baby Memory Cards | MakePhotoCard.online</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Create beautiful polaroid-style memory cards for your baby with custom messages, multiple card styles, and photo filters. Free daily creation at MakePhotoCard.online">
+    <meta name="keywords" content="baby memory card, photo card maker, polaroid card, baby photos, memory keeper, photo editor, baby milestones">
+    <meta name="author" content="MakePhotoCard.online">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags for Social Sharing -->
+    <meta property="og:title" content="Growth Memory Card - Create Beautiful Baby Memory Cards">
+    <meta property="og:description" content="Create stunning polaroid-style memory cards for your little one with custom messages and beautiful designs.">
+    <meta property="og:image" content="https://makephotocard.online/preview-image.jpg">
+    <meta property="og:url" content="https://makephotocard.online">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="MakePhotoCard.online">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Growth Memory Card - Create Beautiful Baby Memory Cards">
+    <meta name="twitter:description" content="Create stunning polaroid-style memory cards for your little one with custom messages and beautiful designs.">
+    <meta name="twitter:image" content="https://makephotocard.online/preview-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #FFE5E5 0%, #E5F3FF 50%, #F0E5FF 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Animated decorations */
+        .decoration {
+            position: absolute;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .cloud {
+            width: 80px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .cloud:before {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50px;
+            top: -25px;
+            left: 10px;
+        }
+
+        .cloud:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50px;
+            top: -15px;
+            right: 10px;
+        }
+
+        .star {
+            width: 20px;
+            height: 20px;
+            background: #FFD700;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            animation: twinkle 3s ease-in-out infinite;
+        }
+
+        .heart {
+            width: 20px;
+            height: 18px;
+            background: #FF69B4;
+            position: relative;
+            transform: rotate(-45deg);
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        .heart:before,
+        .heart:after {
+            content: '';
+            width: 20px;
+            height: 18px;
+            position: absolute;
+            background: #FF69B4;
+            border-radius: 50px 50px 0 0;
+        }
+
+        .heart:before {
+            left: 10px;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+
+        .heart:after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+
+        .bubble {
+            width: 30px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .spaceship {
+            width: 40px;
+            height: 25px;
+            background: linear-gradient(45deg, #FFB6C1, #FFA07A);
+            border-radius: 20px 20px 5px 5px;
+            position: relative;
+            animation: fly 10s linear infinite;
+        }
+
+        .spaceship:before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 15px;
+            width: 10px;
+            height: 15px;
+            background: #87CEEB;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        }
+
+        .spaceship:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 8px;
+            width: 24px;
+            height: 8px;
+            background: linear-gradient(90deg, #FF6B6B, #FFD93D, #6BCF7F);
+            border-radius: 0 0 10px 10px;
+            opacity: 0.8;
+        }
+
+        .rabbit {
+            width: 25px;
+            height: 20px;
+            background: #FFB6C1;
+            border-radius: 50%;
+            position: relative;
+            animation: hop 4s ease-in-out infinite;
+        }
+
+        .rabbit:before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 3px;
+            width: 6px;
+            height: 15px;
+            background: #FFB6C1;
+            border-radius: 50px;
+            box-shadow: 12px 0 0 #FFB6C1;
+        }
+
+        .rabbit:after {
+            content: '';
+            position: absolute;
+            top: -3px;
+            right: -8px;
+            width: 8px;
+            height: 6px;
+            background: #FFB6C1;
+            border-radius: 50%;
+        }
+
+        .cat {
+            width: 30px;
+            height: 25px;
+            background: #FFA500;
+            border-radius: 50%;
+            position: relative;
+            animation: wiggle 6s ease-in-out infinite;
+        }
+
+        .cat:before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 5px;
+            width: 8px;
+            height: 8px;
+            background: #FFA500;
+            border-radius: 0 50px 0 0;
+            transform: rotate(45deg);
+            box-shadow: 12px 0 0 #FFA500;
+        }
+
+        .cat:after {
+            content: '';
+            position: absolute;
+            right: -15px;
+            top: 8px;
+            width: 15px;
+            height: 3px;
+            background: #FFA500;
+            border-radius: 50px;
+        }
+
+        .bird {
+            width: 20px;
+            height: 15px;
+            background: #87CEEB;
+            border-radius: 50%;
+            position: relative;
+            animation: fly 8s ease-in-out infinite;
+        }
+
+        .bird:before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 2px;
+            width: 10px;
+            height: 8px;
+            background: #87CEEB;
+            border-radius: 50% 0 50% 50%;
+            transform: rotate(-30deg);
+        }
+
+        .bird:after {
+            content: '';
+            position: absolute;
+            right: -10px;
+            top: 2px;
+            width: 10px;
+            height: 8px;
+            background: #87CEEB;
+            border-radius: 0 50% 50% 50%;
+            transform: rotate(30deg);
+        }
+
+        @keyframes fly {
+            0%, 100% { transform: translateX(0px) translateY(0px); }
+            25% { transform: translateX(20px) translateY(-10px); }
+            50% { transform: translateX(40px) translateY(0px); }
+            75% { transform: translateX(20px) translateY(10px); }
+        }
+
+        @keyframes hop {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(-5deg); }
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-3deg); }
+            75% { transform: rotate(3deg); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.3; transform: scale(0.8); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: rotate(-45deg) translateY(0px); }
+            50% { transform: rotate(-45deg) translateY(-10px); }
+        }
+
+        /* Main container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            color: #FF6B6B;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            color: #666;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .input-section {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: bold;
+        }
+
+        .file-upload {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .file-upload input[type="file"] {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .upload-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, #FF6B6B, #FF8E8E);
+            color: white;
+            text-align: center;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px dashed #FF6B6B;
+        }
+
+        .upload-btn:hover {
+            background: linear-gradient(45deg, #FF8E8E, #FFB6B6);
+            transform: translateY(-2px);
+        }
+
+        .input-section input[type="text"],
+        .input-section textarea,
+        .input-section select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #E0E0E0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-section input[type="text"]:focus,
+        .input-section textarea:focus,
+        .input-section select:focus {
+            outline: none;
+            border-color: #FF6B6B;
+        }
+
+        .style-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+        }
+
+        .style-option {
+            padding: 10px;
+            border: 2px solid #E0E0E0;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .style-option:hover,
+        .style-option.selected {
+            border-color: #FF6B6B;
+            background: #FFE5E5;
+            transform: translateY(-2px);
+        }
+
+        .filter-controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .filter-group label {
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .filter-group input[type="range"] {
+            width: 100%;
+        }
+
+        .generate-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, #4ECDC4, #44A08D);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .generate-btn:hover {
+            background: linear-gradient(45deg, #44A08D, #4ECDC4);
+            transform: translateY(-2px);
+        }
+
+        .generate-btn:disabled {
+            background: #CCC;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .preview-section {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        .polaroid-card {
+            background: white;
+            padding: 20px 20px 100px 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transform: rotate(-2deg);
+            margin: 20px auto;
+            max-width: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Card decoration patterns */
+        .card-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .pattern-stripes {
+            background: repeating-linear-gradient(
+                135deg,
+                transparent,
+                transparent 8px,
+                rgba(255,107,107,0.2) 8px,
+                rgba(255,107,107,0.2) 12px
+            );
+        }
+
+        .pattern-grid {
+            background-image: 
+                linear-gradient(rgba(139,69,19,0.2) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(139,69,19,0.2) 1px, transparent 1px);
+            background-size: 15px 15px;
+        }
+
+        .pattern-dots {
+            background-image: radial-gradient(circle, rgba(148,0,211,0.3) 2px, transparent 2px);
+            background-size: 20px 20px;
+        }
+
+        .pattern-flowers::before {
+            content: '🌸 🌼 🌻 🌺 🌷 🌸 🌼 🌻 🌺 🌷 🌸 🌼 🌻 🌺 🌷 🌸 🌼 🌻 🌺 🌷 🌸 🌼 🌻 🌺 🌷 🌸 🌼 🌻 🌺 🌷 🌸 🌼 🌻 🌺 🌷 🌸 🌼 🌻 🌺 🌷';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            font-size: 12px;
+            line-height: 25px;
+            word-wrap: break-word;
+            word-break: break-all;
+            opacity: 0.15;
+        }
+
+        .pattern-grass::before {
+            content: '🌱 🌿 🍀 🌾 🌱 🌿 🍀 🌾 🌱 🌿 🍀 🌾 🌱 🌿 🍀 🌾 🌱 🌿 🍀 🌾 🌱 🌿 🍀 🌾 🌱 🌿 🍀 🌾 🌱 🌿 🍀 🌾 🌱 🌿 🍀 🌾 🌱 🌿 🍀 🌾 🌱 🌿 🍀 🌾 🌱 🌿 🍀 🌾';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            font-size: 12px;
+            line-height: 25px;
+            word-wrap: break-word;
+            word-break: break-all;
+            opacity: 0.15;
+        }
+
+        .pattern-stars::before {
+            content: '⭐ ✨ 🌟 💫 ⭐ ✨ 🌟 💫 ⭐ ✨ 🌟 💫 ⭐ ✨ 🌟 💫 ⭐ ✨ 🌟 💫 ⭐ ✨ 🌟 💫 ⭐ ✨ 🌟 💫 ⭐ ✨ 🌟 💫 ⭐ ✨ 🌟 💫 ⭐ ✨ 🌟 💫 ⭐ ✨ 🌟 💫 ⭐ ✨ 🌟 💫';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            font-size: 12px;
+            line-height: 25px;
+            word-wrap: break-word;
+            word-break: break-all;
+            opacity: 0.15;
+        }
+
+        .pattern-hearts::before {
+            content: '💕 💖 💗 💝 💕 💖 💗 💝 💕 💖 💗 💝 💕 💖 💗 💝 💕 💖 💗 💝 💕 💖 💗 💝 💕 💖 💗 💝 💕 💖 💗 💝 💕 💖 💗 💝 💕 💖 💗 💝 💕 💖 💗 💝 💕 💖 💗 💝';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            font-size: 12px;
+            line-height: 25px;
+            word-wrap: break-word;
+            word-break: break-all;
+            opacity: 0.15;
+        }
+
+        .polaroid-image {
+            position: relative;
+            z-index: 2;
+        }
+
+        .polaroid-text {
+            position: relative;
+            z-index: 2;
+        }
+
+        .polaroid-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 5px;
+            background: linear-gradient(45deg, #FFE5E5, #E5F3FF);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 16px;
+        }
+
+        .polaroid-text {
+            position: absolute;
+            bottom: 35px;
+            left: 20px;
+            right: 20px;
+            text-align: center;
+            color: #333;
+            font-size: 15px;
+            line-height: 1.3;
+            word-wrap: break-word;
+            max-height: 45px;
+            overflow: hidden;
+        }
+
+        .polaroid-date {
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .action-btn {
+            padding: 12px 24px;
+            border: 2px solid #FF6B6B;
+            background: white;
+            color: #FF6B6B;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .action-btn:hover {
+            background: #FF6B6B;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .usage-info {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .payment-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .style-options {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .filter-controls {
+                grid-template-columns: 1fr;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+        }
+
+        /* Hidden canvas for image processing */
+        #imageCanvas {
+            display: none;
+        }
+
+        /* Preview image */
+        .image-preview {
+            max-width: 100%;
+            max-height: 200px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated decorations -->
+    <div class="decoration cloud" style="top: 10%; left: 10%;"></div>
+    <div class="decoration star" style="top: 15%; right: 15%;"></div>
+    <div class="decoration heart" style="top: 20%; left: 80%;"></div>
+    <div class="decoration bubble" style="top: 30%; left: 5%;"></div>
+    <div class="decoration star" style="top: 40%; right: 10%;"></div>
+    <div class="decoration cloud" style="top: 60%; right: 20%;"></div>
+    <div class="decoration heart" style="top: 70%; left: 15%;"></div>
+    <div class="decoration bubble" style="top: 80%; right: 5%;"></div>
+    <div class="decoration star" style="top: 85%; left: 70%;"></div>
+    
+    <!-- New cute decorations -->
+    <div class="decoration spaceship" style="top: 25%; left: 85%;"></div>
+    <div class="decoration rabbit" style="top: 45%; left: 3%;"></div>
+    <div class="decoration cat" style="top: 75%; right: 25%;"></div>
+    <div class="decoration bird" style="top: 35%; right: 30%;"></div>
+    <div class="decoration spaceship" style="top: 90%; left: 40%;"></div>
+    <div class="decoration rabbit" style="top: 55%; right: 8%;"></div>
+    <div class="decoration cat" style="top: 12%; left: 60%;"></div>
+    <div class="decoration bird" style="top: 65%; left: 25%;"></div>
+
+    <div class="container">
+        <div class="header">
+            <h1>🎈 Growth Memory Card 🎈</h1>
+            <p>Create beautiful memories for your little one</p>
+            <p style="font-size: 14px; color: #888; margin-top: 5px;">✨ Powered by <strong>MakePhotoCard.online</strong> ✨</p>
+        </div>
+
+        <div class="main-content">
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="photoUpload">📸 Upload Baby's Photo</label>
+                    <div class="file-upload">
+                        <input type="file" id="photoUpload" accept="image/*">
+                        <div class="upload-btn">Click to upload or drag photo here</div>
+                    </div>
+                    <img id="photoPreview" class="image-preview" style="display: none;">
+                </div>
+
+                <div class="input-group">
+                    <label for="relationship">👨‍👩‍👧‍👦 You are baby's...</label>
+                    <input type="text" id="relationship" placeholder="e.g., Mom, Dad, Grandma, Uncle...">
+                </div>
+
+                <div class="input-group">
+                    <label for="babyName">👶 Baby's Nickname</label>
+                    <input type="text" id="babyName" placeholder="Enter baby's nickname">
+                </div>
+
+                <div class="input-group">
+                    <label for="message">💝 Message to Baby</label>
+                    <textarea id="message" rows="3" placeholder="What do you want to say to your baby?"></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label>🎨 Card Style</label>
+                    <div class="style-options">
+                        <div class="style-option selected" data-style="simple">Simple</div>
+                        <div class="style-option" data-style="cute">Cute</div>
+                        <div class="style-option" data-style="vintage">Vintage</div>
+                        <div class="style-option" data-style="dreamy">Dreamy</div>
+                        <div class="style-option" data-style="cartoon">Cartoon</div>
+                        <div class="style-option" data-style="floral">Floral</div>
+                        <div class="style-option" data-style="starry">Starry</div>
+                        <div class="style-option" data-style="nature">Nature</div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>✏️ Font Style</label>
+                    <div class="style-options">
+                        <div class="style-option selected" data-font="handwriting">Handwriting</div>
+                        <div class="style-option" data-font="round">Round</div>
+                        <div class="style-option" data-font="serif">Serif</div>
+                        <div class="style-option" data-font="cartoon">Cartoon</div>
+                        <div class="style-option" data-font="artistic">Artistic</div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>🎛️ Image Filters</label>
+                    <div class="filter-controls">
+                        <div class="filter-group">
+                            <label for="brightness">Brightness</label>
+                            <input type="range" id="brightness" min="0" max="200" value="100">
+                        </div>
+                        <div class="filter-group">
+                            <label for="contrast">Contrast</label>
+                            <input type="range" id="contrast" min="0" max="200" value="100">
+                        </div>
+                        <div class="filter-group">
+                            <label for="saturation">Saturation</label>
+                            <input type="range" id="saturation" min="0" max="200" value="100">
+                        </div>
+                        <div class="filter-group">
+                            <label for="blur">Softness</label>
+                            <input type="range" id="blur" min="0" max="10" value="0">
+                        </div>
+                    </div>
+                </div>
+
+                <button class="generate-btn" id="generateBtn">🎨 Generate Memory Card</button>
+            </div>
+
+            <div class="preview-section">
+                <h3>💖 Your Memory Card Preview</h3>
+                <div id="cardPreview">
+                    <div class="polaroid-card">
+                        <div class="polaroid-image" id="polaroidImage">
+                            Upload a photo to see preview
+                        </div>
+                        <div class="polaroid-text">
+                            <div id="previewText">Someone wants to say to Baby: "Your message will appear here"</div>
+                        </div>
+                        <div class="polaroid-date" id="previewDate"></div>
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="action-btn" id="downloadBtn">💾 Download</button>
+                    <button class="action-btn" id="shareBtn">📱 Share</button>
+                </div>
+
+                <div class="usage-info">
+                    <p>🎁 <strong>Daily Free Usage:</strong> <span id="usageCount">1</span> remaining today</p>
+                    <p style="font-size: 14px; color: #666; margin-top: 5px;">Resets at midnight</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div style="text-align: center; padding: 30px 20px; color: #888; font-size: 14px; background: rgba(255,255,255,0.7); margin-top: 40px;">
+        <p>© 2024 <a href="https://makephotocard.online" style="color: #FF6B6B; text-decoration: none; font-weight: bold;">MakePhotoCard.online</a> - Creating Beautiful Memories Together</p>
+        <p style="margin-top: 8px;">🎨 Professional Photo Card Maker | 📱 Mobile Friendly | 💝 Made with Love</p>
+    </div>
+
+    <!-- Payment Modal -->
+    <div class="payment-modal" id="paymentModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h3>💰 Premium Access</h3>
+            <p>You've used your free daily generation!</p>
+            <p>Upgrade to Premium for unlimited access:</p>
+            <div style="margin: 20px 0;">
+                <div>✨ Unlimited generations</div>
+                <div>🎨 Exclusive card styles</div>
+                <div>📱 Priority support</div>
+            </div>
+            <button class="generate-btn" style="margin-top: 20px;">🚀 Upgrade Now - $2.99/month</button>
+        </div>
+    </div>
+
+    <!-- Hidden canvas for image processing -->
+    <canvas id="imageCanvas"></canvas>
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Growth Memory Card",
+        "url": "https://makephotocard.online",
+        "description": "Create beautiful polaroid-style memory cards for your baby with custom messages, multiple card styles, and photo filters.",
+        "applicationCategory": "PhotographyApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "description": "Free daily usage with premium options available"
+        },
+        "featureList": [
+            "Photo upload and editing",
+            "Multiple card styles",
+            "Custom text messages",
+            "Photo filters and effects",
+            "Download high-quality cards",
+            "Mobile responsive design"
+        ],
+        "author": {
+            "@type": "Organization",
+            "name": "MakePhotoCard.online"
+        }
+    }
+    </script>
+
+    <script>
+        // Global variables
+        let uploadedImage = null;
+        let selectedStyle = 'simple';
+        let selectedFont = 'handwriting';
+        let dailyUsage = 0;
+        const maxDailyUsage = 1;
+
+        // Font mappings
+        const fontFamilies = {
+            'handwriting': 'Brush Script MT, cursive',
+            'round': 'Arial Rounded MT Bold, Arial, sans-serif',
+            'serif': 'Georgia, serif',
+            'cartoon': 'Comic Sans MS, cursive',
+            'artistic': 'Impact, Arial Black, sans-serif'
+        };
+
+        // Initialize the app
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeApp();
+        });
+
+        function initializeApp() {
+            // Check daily usage from localStorage
+            const today = new Date().toDateString();
+            const savedDate = localStorage.getItem('lastUsageDate');
+            const savedUsage = parseInt(localStorage.getItem('dailyUsage') || '0');
+
+            if (savedDate === today) {
+                dailyUsage = savedUsage;
+            } else {
+                dailyUsage = 0;
+                localStorage.setItem('lastUsageDate', today);
+                localStorage.setItem('dailyUsage', '0');
+            }
+
+            updateUsageDisplay();
+            updateDate();
+            setupEventListeners();
+        }
+
+        function setupEventListeners() {
+            // Photo upload
+            document.getElementById('photoUpload').addEventListener('change', handlePhotoUpload);
+
+            // Input changes
+            document.getElementById('relationship').addEventListener('input', updatePreview);
+            document.getElementById('babyName').addEventListener('input', updatePreview);
+            document.getElementById('message').addEventListener('input', updatePreview);
+
+            // Style selection
+            document.querySelectorAll('[data-style]').forEach(option => {
+                option.addEventListener('click', () => selectStyle(option.dataset.style, option));
+            });
+
+            // Font selection
+            document.querySelectorAll('[data-font]').forEach(option => {
+                option.addEventListener('click', () => selectFont(option.dataset.font, option));
+            });
+
+            // Filter controls
+            document.querySelectorAll('input[type="range"]').forEach(slider => {
+                slider.addEventListener('input', updateImageFilters);
+            });
+
+            // Generate button
+            document.getElementById('generateBtn').addEventListener('click', generateCard);
+
+            // Action buttons
+            document.getElementById('downloadBtn').addEventListener('click', downloadCard);
+            document.getElementById('shareBtn').addEventListener('click', shareCard);
+
+            // Modal
+            document.getElementById('closeModal').addEventListener('click', closePaymentModal);
+            document.getElementById('paymentModal').addEventListener('click', (e) => {
+                if (e.target.id === 'paymentModal') closePaymentModal();
+            });
+        }
+
+        function handlePhotoUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = new Image();
+                    img.onload = function() {
+                        uploadedImage = img;
+                        document.getElementById('photoPreview').src = e.target.result;
+                        document.getElementById('photoPreview').style.display = 'block';
+                        updatePreview();
+                    };
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function selectStyle(style, element) {
+            selectedStyle = style;
+            document.querySelectorAll('[data-style]').forEach(el => el.classList.remove('selected'));
+            element.classList.add('selected');
+            updatePreview();
+        }
+
+        function selectFont(font, element) {
+            selectedFont = font;
+            document.querySelectorAll('[data-font]').forEach(el => el.classList.remove('selected'));
+            element.classList.add('selected');
+            updatePreview();
+        }
+
+        function updatePreview() {
+            const relationship = document.getElementById('relationship').value || 'Someone';
+            const babyName = document.getElementById('babyName').value || 'Baby';
+            const message = document.getElementById('message').value || 'Your message will appear here';
+            const previewText = `${relationship} wants to say to ${babyName}: "${message}"`;
+            
+            document.getElementById('previewText').textContent = previewText;
+            document.getElementById('previewText').style.fontFamily = fontFamilies[selectedFont];
+
+            // Update polaroid card style based on selected style
+            const polaroidCard = document.querySelector('.polaroid-card');
+            updateCardStyle(polaroidCard);
+
+            // Update image if uploaded
+            if (uploadedImage) {
+                updateImageDisplay();
+            }
+        }
+
+        function updateCardStyle(card) {
+            // Remove existing pattern
+            const existingPattern = card.querySelector('.card-pattern');
+            if (existingPattern) {
+                existingPattern.remove();
+            }
+
+            const styles = {
+                'simple': { 
+                    background: 'white', 
+                    border: '1px solid #ddd',
+                    pattern: 'pattern-stripes'
+                },
+                'cute': { 
+                    background: 'linear-gradient(45deg, #FFE5E5, #FFE5F1)', 
+                    border: '3px solid #FF69B4',
+                    pattern: 'pattern-hearts'
+                },
+                'vintage': { 
+                    background: 'linear-gradient(45deg, #F5E6D3, #E8D4B0)', 
+                    border: '2px solid #8B4513',
+                    pattern: 'pattern-grid'
+                },
+                'dreamy': { 
+                    background: 'linear-gradient(45deg, #E5E5FF, #F0E5FF)', 
+                    border: '2px solid #9370DB',
+                    pattern: 'pattern-dots'
+                },
+                'cartoon': { 
+                    background: 'linear-gradient(45deg, #FFFF99, #FFE5B4)', 
+                    border: '3px solid #FF6347',
+                    pattern: 'pattern-stars'
+                },
+                'floral': { 
+                    background: 'linear-gradient(45deg, #F0FFF0, #E5FFE5)', 
+                    border: '2px solid #228B22',
+                    pattern: 'pattern-flowers'
+                },
+                'starry': { 
+                    background: 'linear-gradient(45deg, #191970, #4169E1)', 
+                    border: '2px solid #FFD700',
+                    pattern: 'pattern-stars'
+                },
+                'nature': { 
+                    background: 'linear-gradient(45deg, #F0FFF0, #E0FFDB)', 
+                    border: '2px solid #32CD32',
+                    pattern: 'pattern-grass'
+                }
+            };
+
+            const style = styles[selectedStyle] || styles['simple'];
+            card.style.background = style.background;
+            card.style.border = style.border;
+
+            // Add pattern decoration
+            if (style.pattern) {
+                const patternDiv = document.createElement('div');
+                patternDiv.className = `card-pattern ${style.pattern}`;
+                card.insertBefore(patternDiv, card.firstChild);
+            }
+        }
+
+        function updateImageFilters() {
+            if (uploadedImage) {
+                updateImageDisplay();
+            }
+        }
+
+        function updateImageDisplay() {
+            const canvas = document.getElementById('imageCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Set canvas size
+            canvas.width = 400;
+            canvas.height = 300;
+            
+            // Apply filters
+            const brightness = document.getElementById('brightness').value;
+            const contrast = document.getElementById('contrast').value;
+            const saturation = document.getElementById('saturation').value;
+            const blur = document.getElementById('blur').value;
+            
+            ctx.filter = `brightness(${brightness}%) contrast(${contrast}%) saturate(${saturation}%) blur(${blur}px)`;
+            
+            // Draw image
+            ctx.drawImage(uploadedImage, 0, 0, canvas.width, canvas.height);
+            
+            // Update preview
+            const imageContainer = document.getElementById('polaroidImage');
+            imageContainer.style.backgroundImage = `url(${canvas.toDataURL()})`;
+            imageContainer.style.backgroundSize = 'cover';
+            imageContainer.style.backgroundPosition = 'center';
+            imageContainer.textContent = '';
+        }
+
+        function updateDate() {
+            const today = new Date();
+            const dateString = today.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric'
+            });
+            document.getElementById('previewDate').textContent = dateString;
+        }
+
+        function updateUsageDisplay() {
+            const remaining = Math.max(0, maxDailyUsage - dailyUsage);
+            document.getElementById('usageCount').textContent = remaining;
+            
+            if (remaining === 0) {
+                document.getElementById('generateBtn').disabled = true;
+                document.getElementById('generateBtn').textContent = '❌ Daily limit reached';
+            }
+        }
+
+        function generateCard() {
+            if (dailyUsage >= maxDailyUsage) {
+                showPaymentModal();
+                return;
+            }
+
+            if (!uploadedImage) {
+                alert('Please upload a photo first!');
+                return;
+            }
+
+            const relationship = document.getElementById('relationship').value;
+            const babyName = document.getElementById('babyName').value;
+            const message = document.getElementById('message').value;
+
+            if (!relationship || !babyName || !message) {
+                alert('Please fill in all fields!');
+                return;
+            }
+
+            // Increment usage
+            dailyUsage++;
+            localStorage.setItem('dailyUsage', dailyUsage.toString());
+            updateUsageDisplay();
+
+            // Show success message
+            document.getElementById('generateBtn').textContent = '✅ Card Generated!';
+            setTimeout(() => {
+                if (dailyUsage < maxDailyUsage) {
+                    document.getElementById('generateBtn').textContent = '🎨 Generate Memory Card';
+                }
+            }, 2000);
+        }
+
+        function downloadCard() {
+            if (!uploadedImage) {
+                alert('Please generate a card first!');
+                return;
+            }
+
+            // Create final canvas
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Set canvas size for final card
+            canvas.width = 600;
+            canvas.height = 800;
+            
+            // Draw white background
+            ctx.fillStyle = 'white';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Apply filters and draw image
+            const brightness = document.getElementById('brightness').value;
+            const contrast = document.getElementById('contrast').value;
+            const saturation = document.getElementById('saturation').value;
+            const blur = document.getElementById('blur').value;
+            
+            ctx.filter = `brightness(${brightness}%) contrast(${contrast}%) saturate(${saturation}%) blur(${blur}px)`;
+            ctx.drawImage(uploadedImage, 50, 50, 500, 400);
+            
+            // Reset filter for text
+            ctx.filter = 'none';
+            
+            // Draw text
+            const relationship = document.getElementById('relationship').value || 'Someone';
+            const babyName = document.getElementById('babyName').value || 'Baby';
+            const message = document.getElementById('message').value || 'Your message';
+            const text = `${relationship} wants to say to ${babyName}: "${message}"`;
+            
+            ctx.fillStyle = '#333';
+            ctx.font = `24px ${fontFamilies[selectedFont]}`;
+            ctx.textAlign = 'center';
+            
+            // Word wrap text
+            const maxWidth = 500;
+            const words = text.split(' ');
+            let line = '';
+            let y = 520;
+            
+            for (let n = 0; n < words.length; n++) {
+                const testLine = line + words[n] + ' ';
+                const metrics = ctx.measureText(testLine);
+                const testWidth = metrics.width;
+                
+                if (testWidth > maxWidth && n > 0) {
+                    ctx.fillText(line, canvas.width / 2, y);
+                    line = words[n] + ' ';
+                    y += 35;
+                } else {
+                    line = testLine;
+                }
+            }
+            ctx.fillText(line, canvas.width / 2, y);
+            
+            // Draw date
+            const today = new Date().toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric'
+            });
+            
+            ctx.font = '18px Arial';
+            ctx.fillStyle = '#666';
+            ctx.textAlign = 'right';
+            ctx.fillText(today, canvas.width - 50, canvas.height - 50);
+            
+            // Download
+            const link = document.createElement('a');
+            link.download = `growth-memory-card-${Date.now()}.png`;
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+
+        function shareCard() {
+            const shareUrl = 'https://makephotocard.online';
+            const shareTitle = 'Growth Memory Card - MakePhotoCard.online';
+            const shareText = 'I just created a beautiful memory card for my baby! 👶✨ Check out this amazing photo card maker!';
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: shareTitle,
+                    text: shareText,
+                    url: shareUrl
+                }).catch((error) => {
+                    console.log('Error sharing:', error);
+                    fallbackShare(shareUrl, shareText);
+                });
+            } else {
+                fallbackShare(shareUrl, shareText);
+            }
+        }
+
+        function fallbackShare(url, text) {
+            // Try to copy to clipboard first
+            if (navigator.clipboard) {
+                const shareContent = `${text}\n\n🔗 ${url}`;
+                navigator.clipboard.writeText(shareContent).then(() => {
+                    alert('🎉 Share content copied to clipboard!\n\nYou can now paste it anywhere to share! 📱');
+                }).catch(() => {
+                    // If clipboard fails, show share dialog
+                    showShareModal(url, text);
+                });
+            } else {
+                showShareModal(url, text);
+            }
+        }
+
+        function showShareModal(url, text) {
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                background: rgba(0,0,0,0.8); display: flex; justify-content: center; align-items: center;
+                z-index: 2000; font-family: Arial, sans-serif;
+            `;
+            
+            modal.innerHTML = `
+                <div style="background: white; padding: 30px; border-radius: 15px; max-width: 400px; width: 90%; text-align: center;">
+                    <h3>📱 Share This Amazing Tool!</h3>
+                    <p style="margin: 15px 0; color: #666;">${text}</p>
+                    <div style="background: #f5f5f5; padding: 10px; border-radius: 8px; margin: 15px 0; font-size: 14px; word-break: break-all;">
+                        ${url}
+                    </div>
+                    <button onclick="this.parentElement.parentElement.remove()" 
+                            style="background: #FF6B6B; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer;">
+                        Close
+                    </button>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) modal.remove();
+            });
+        }
+
+        function showPaymentModal() {
+            document.getElementById('paymentModal').style.display = 'flex';
+        }
+
+        function closePaymentModal() {
+            document.getElementById('paymentModal').style.display = 'none';
+        }
+
+        // Add some floating animations to decorations
+        setInterval(() => {
+            document.querySelectorAll('.decoration').forEach(decoration => {
+                const randomDelay = Math.random() * 2000;
+                setTimeout(() => {
+                    decoration.style.animationDelay = Math.random() * 3 + 's';
+                }, randomDelay);
+            });
+        }, 10000);
+    </script>
+</body>
+</html> 
